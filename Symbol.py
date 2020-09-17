@@ -30,6 +30,8 @@ class Symbol:
 
     def draw(self,filename_to_write):
         surface = gizeh.Surface(width=300, height=300)
+        square = gizeh.square(l=600, fill=(1,1,1), xy=(0,0))
+        square.draw(surface)
         for line in self.lines:
             line_to_draw = gizeh.polyline(points=[(int(line.point_1.x),int(line.point_1.y)),(int(line.point_2.x),int(line.point_2.y))],stroke_width=3, stroke=(0,0,0), fill=(1,1,1))
             line_to_draw.draw(surface)
