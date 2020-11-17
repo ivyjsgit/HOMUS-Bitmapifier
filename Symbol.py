@@ -48,13 +48,9 @@ class Symbol:
         if len(scooted)%2!=0:
             scooted.pop()
         for i in range(0,len(scooted),2):
-            print(scooted)
-            print(f"Trying {i}")
             point_1 = scooted[i]
             point_2 = scooted[i+1]
             points=[(int(point_1[0]),int(point_1[1])),(int(point_2[0]),int(point_2[1]))]
             line_to_draw = gizeh.polyline(points,stroke_width=3, stroke=(0,0,0), fill=(1,1,1))
-            # line_to_draw = gizeh.polyline(points=[(int(line.point_1.x),int(line.point_1.y)),(int(line.point_2.x),int(line.point_2.y))],stroke_width=3, stroke=(0,0,0), fill=(1,1,1))
             line_to_draw.draw(surface)
-        # cv2.imshow('image', surface.get_npimage())
         surface.write_to_png(f"{filename_to_write}.png")
