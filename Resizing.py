@@ -35,8 +35,7 @@ def scalePoints(points, viewport_size, shrink_factor):
     width = max_x - min_x
 
     scale = (width/viewport_size) * shrink_factor
-
-    scaled_points = list(map(lambda point: ((point[0]/scale),(point[1]/scale)), points))
+    scaled_points = list(map(lambda point: ((point[0]/scale) if point[0]!=0 else 0,(point[1]/scale) if point[1] !=0 else 0), points))
     return scaled_points
 
 def scootPoints(scaled_points, padding):
